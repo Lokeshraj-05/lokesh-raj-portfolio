@@ -10,13 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#5B8CFF",
-        secondary: "#8B5CF6",
-        accent: "#00D4FF",
+        primary: "#6E8098",
+        secondary: "#8FA3B8",
+        accent: "#6E8098",
+        "accent-hover": "#8FA3B8",
         background: "#0A0A0A",
-        card: "rgba(255,255,255,0.05)",
-        "card-border": "rgba(255,255,255,0.08)",
-        muted: "#9CA3AF",
+        foreground: "#F4F4F4",
+        card: "rgba(255,255,255,0.03)",
+        "card-border": "rgba(143,163,184,0.20)",
+        muted: "#A5A5A5",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
@@ -24,10 +26,11 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       backgroundImage: {
-        "gradient-primary": "linear-gradient(135deg, #5B8CFF 0%, #8B5CF6 50%, #00D4FF 100%)",
+        "gradient-primary":
+          "linear-gradient(135deg, #6E8098 0%, #8FA3B8 100%)",
         "gradient-radial": "radial-gradient(circle, var(--tw-gradient-stops))",
         "grid-pattern":
-          "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+          "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
       },
       animation: {
         float: "float 6s ease-in-out infinite",
@@ -44,8 +47,8 @@ const config: Config = {
           "50%": { transform: "translateY(-16px)" },
         },
         pulseGlow: {
-          "0%, 100%": { opacity: "0.5", filter: "blur(20px)" },
-          "50%": { opacity: "0.9", filter: "blur(28px)" },
+          "0%, 100%": { opacity: "0.4", filter: "blur(16px)" },
+          "50%": { opacity: "0.7", filter: "blur(22px)" },
         },
         marquee: {
           "0%": { transform: "translateX(0%)" },
@@ -61,8 +64,10 @@ const config: Config = {
         },
       },
       boxShadow: {
-        glow: "0 0 40px rgba(91,140,255,0.25)",
-        "glow-accent": "0 0 40px rgba(0,212,255,0.25)",
+        glow: "0 0 32px rgba(110,128,152,0.08)",
+        "glow-accent": "0 0 24px rgba(110,128,152,0.06)",
+        "inset-slate": "inset 0 1px 0 rgba(110,128,152,0.10)",
+        depth: "0 8px 32px rgba(0,0,0,0.45)",
       },
     },
   },

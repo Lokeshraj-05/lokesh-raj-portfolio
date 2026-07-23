@@ -71,21 +71,21 @@ export default function ProfilePicture() {
       transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
       className="relative mx-auto w-[260px] sm:w-[320px]"
     >
-      
       {/* Floating particles */}
       {particles.map((p, i) => (
         <motion.span
           key={i}
-          className="absolute -z-0 rounded-full bg-accent/70 shadow-glow-accent"
+          className="absolute -z-0 rounded-full bg-primary/50"
           style={{
             top: p.top,
             left: p.left,
             width: p.size,
             height: p.size,
+            boxShadow: "0 0 8px rgba(212,175,55,0.15)",
           }}
           animate={{
             y: [0, -14, 0],
-            opacity: [0.2, 0.9, 0.2],
+            opacity: [0.15, 0.6, 0.15],
           }}
           transition={{
             duration: p.duration,
@@ -110,11 +110,17 @@ export default function ProfilePicture() {
           style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
           className="relative"
         >
-          {/* Animated gradient border */}
-          <div className="relative rounded-[28px] bg-gradient-primary bg-[length:200%_200%] p-[2px] animate-gradientShift shadow-glow">
-            {/* Glass card body */}
+          {/* Matte frame with corner accents */}
+          <div
+            className="relative p-[2px]"
+            style={{
+              background: "linear-gradient(160deg, rgba(212,175,55,0.35) 0%, rgba(212,175,55,0.08) 50%, rgba(182,140,47,0.2) 100%)",
+              boxShadow: "0 0 32px rgba(212,175,55,0.06)",
+            }}
+          >
+            {/* Card body */}
             <div
-              className="relative aspect-[4/5] w-full overflow-hidden rounded-[26px] bg-white/5 backdrop-blur-2xl border border-white/10"
+              className="relative aspect-[4/5] w-full overflow-hidden bg-[#111111]"
               style={{ transform: "translateZ(20px)" }}
             >
               <Image
@@ -126,12 +132,12 @@ export default function ProfilePicture() {
                 priority
               />
 
-              {/* Layered glass panel for depth */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-white/[0.06]" />
+              {/* Depth overlay */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-white/[0.03]" />
 
-              {/* Holographic light sweep */}
+              {/* Light sweep */}
               <motion.div
-                className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+                className="pointer-events-none absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white/15 to-transparent"
                 style={{ skewX: -18 }}
                 animate={{ x: ["-140%", "260%"] }}
                 transition={{
@@ -144,24 +150,24 @@ export default function ProfilePicture() {
 
               {/* Mouse-reactive glare */}
               <motion.div
-                className="pointer-events-none absolute inset-0 opacity-40"
+                className="pointer-events-none absolute inset-0 opacity-30"
                 style={{
-                  background: `radial-gradient(220px circle at ${glareX} ${glareY}, rgba(0,212,255,0.25), transparent 70%)`,
+                  background: `radial-gradient(220px circle at ${glareX} ${glareY}, rgba(212,175,55,0.18), transparent 70%)`,
                 }}
               />
 
-              {/* Bottom glass strip */}
-              <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-white/[0.04] px-4 py-3 backdrop-blur-xl">
-                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent">
+              {/* Bottom strip */}
+              <div className="absolute inset-x-0 bottom-0 border-t border-[rgba(212,175,55,0.12)] bg-[#0a0a0a]/80 px-4 py-3 backdrop-blur-xl">
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">
                   AI &amp; Data Science
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Secondary offset glass panel (depth layer) */}
+          {/* Secondary offset depth layer */}
           <div
-            className="absolute inset-0 -z-10 rounded-[28px] border border-white/5 bg-white/[0.02] backdrop-blur-xl"
+            className="absolute inset-0 -z-10 border border-white/[0.04] bg-[#0e0e0e]"
             style={{ transform: "translateZ(-30px) translateY(14px) scale(0.96)" }}
           />
         </motion.div>

@@ -45,26 +45,26 @@ export default function Loader() {
         >
           <div className="relative flex flex-col items-center gap-6">
             <div className="flex items-center gap-1 font-mono text-sm tracking-[0.3em] text-muted">
-              <span className="text-accent">&lt;</span>
+              <span className="text-primary">&lt;</span>
               <motion.span
-                className="text-white"
+                className="text-foreground"
                 key="brand"
               >
                 LOKESH.RAJ
               </motion.span>
-              <span className="text-accent">/&gt;</span>
+              <span className="text-primary">/&gt;</span>
             </div>
 
-            <div className="relative h-[2px] w-56 overflow-hidden rounded-full bg-white/10">
+            <div className="relative h-[2px] w-56 overflow-hidden bg-white/[0.06]">
               <motion.div
-                className="h-full bg-gradient-to-r from-primary via-secondary to-accent"
+                className="h-full bg-primary/80"
                 style={{ width: `${progress}%` }}
               />
             </div>
 
             <div className="font-mono text-xs text-muted">
               initializing_system<span className="animate-blink">_</span>{" "}
-              <span className="text-primary">{progress}%</span>
+              <span className="text-secondary">{progress}%</span>
             </div>
           </div>
         </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, ArrowDown, FileDown, Send } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import ProfilePicture from "./ProfilePicture";
 import { profile, socials } from "@/lib/data";
 
@@ -26,7 +26,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-28 pb-16"
+      className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden pt-28 pb-20"
     >
       <div className="absolute inset-0 -z-10 grid-backdrop" />
 
@@ -37,29 +37,30 @@ export default function Hero() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="mt-8 flex flex-col items-center"
+          className="mt-10 flex flex-col items-center"
         >
           <motion.div
             variants={item}
-            className="eyebrow mb-5 flex items-center gap-2 rounded-full glass px-4 py-1.5"
+            className="eyebrow mb-6 flex items-center gap-2.5 border border-[rgba(143,163,184,0.15)] bg-[#0e0e0e] px-4 py-1.5"
+            style={{ boxShadow: "inset 0 1px 0 rgba(110,128,152,0.06)", borderRadius: "999px" }}
           >
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-40" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
             </span>
             {profile.status}
           </motion.div>
 
           <motion.h1
             variants={item}
-            className="max-w-4xl font-display text-4xl font-bold leading-[1.08] tracking-tight sm:text-6xl md:text-7xl"
+            className="max-w-4xl font-display text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-6xl md:text-7xl"
           >
             {profile.name}
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-4 font-mono text-sm uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-primary sm:text-base"
+            className="mt-4 font-mono text-sm uppercase tracking-[0.25em] text-secondary sm:text-base"
           >
             {profile.title}
           </motion.p>
@@ -71,38 +72,12 @@ export default function Hero() {
             {profile.tagline}
           </motion.p>
 
-          <motion.div variants={item} className="mt-9 flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="#projects"
-              data-cursor-hover
-              className="group flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-105"
-            >
-              View Projects
-              <ArrowDown size={16} className="transition-transform group-hover:translate-y-0.5" />
-            </a>
-           <a
-  href="#research"
-  data-cursor-hover
-  className="glass flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
->
-  Research
-</a>
-            <a
-              href="#contact"
-              data-cursor-hover
-              className="flex items-center gap-2 rounded-full border border-white/10 px-6 py-3.5 text-sm font-semibold text-muted transition-colors hover:border-white/25 hover:text-white"
-            >
-              <Send size={15} />
-              Connect
-            </a>
-          </motion.div>
-
-          <motion.div variants={item} className="mt-10 flex items-center gap-4">
+          <motion.div variants={item} className="mt-10 flex items-center gap-3">
             {[
               { href: socials.github, icon: Github, label: "GitHub" },
               { href: socials.linkedin, icon: Linkedin, label: "LinkedIn" },
               { href: socials.instagram, icon: Instagram, label: "Instagram" },
-            ].map(({ href, icon: Icon, label }) => (
+            ].map(({ href, icon: Icon, label }, i) => (
               <a
                 key={label}
                 href={href}
@@ -110,7 +85,8 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 aria-label={label}
                 data-cursor-hover
-                className="glass flex h-11 w-11 items-center justify-center rounded-full text-muted transition-all hover:-translate-y-1 hover:text-accent"
+                className={`btn-icon h-11 w-11 ${i === 1 ? "rounded-sm" : i === 2 ? "rounded-full" : ""}`}
+                style={i === 0 ? { borderRadius: 0 } : undefined}
               >
                 <Icon size={18} />
               </a>
@@ -118,22 +94,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.4, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2 text-muted"
-        >
-          <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Scroll</span>
-          <ArrowDown size={14} />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

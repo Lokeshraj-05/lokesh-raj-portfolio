@@ -36,22 +36,29 @@ export default function Navbar() {
         <a
           href="#hero"
           data-cursor-hover
-          className={`glass flex items-center gap-2 rounded-full px-4 py-2 font-display text-sm font-semibold tracking-wide transition-all ${
-            scrolled ? "opacity-100" : "opacity-0 pointer-events-none md:opacity-100 md:pointer-events-auto"
+          className={`flex items-center gap-2 border border-white/[0.06] bg-[#0e0e0e]/90 px-4 py-2 font-display text-sm font-semibold tracking-[0.15em] text-foreground backdrop-blur-sm transition-all ${
+            scrolled ? "opacity-100" : "pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100"
           }`}
+          style={{ boxShadow: "inset 0 1px 0 rgba(110,128,152,0.07)" }}
         >
+          <span className="h-1.5 w-1.5 bg-primary" />
           LOKI
         </a>
 
-        <nav className="hidden items-center gap-1 rounded-full glass px-2 py-2 md:flex">
+        <nav
+          className={`hidden items-center gap-0.5 border border-white/[0.06] bg-[#0e0e0e]/85 px-1.5 py-1.5 backdrop-blur-sm md:flex ${
+            scrolled ? "shadow-depth" : ""
+          }`}
+        >
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               data-cursor-hover
-              className="rounded-full px-3.5 py-1.5 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:bg-white/5 hover:text-white"
+              className="group relative px-3.5 py-1.5 font-mono text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-foreground"
             >
               {link.label}
+              <span className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-primary transition-all duration-300 group-hover:w-3/4" />
             </a>
           ))}
         </nav>
@@ -59,7 +66,7 @@ export default function Navbar() {
         <a
           href="#contact"
           data-cursor-hover
-          className="hidden rounded-full bg-gradient-primary px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-wider text-white shadow-glow transition-transform hover:scale-105 md:block"
+          className="btn-nav-cta hidden md:block"
         >
           Reach Out
         </a>
@@ -67,7 +74,7 @@ export default function Navbar() {
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="glass rounded-full p-2.5 text-white md:hidden"
+          className="border border-white/[0.08] bg-[#111111] p-2.5 text-foreground md:hidden"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
@@ -82,13 +89,13 @@ export default function Navbar() {
             transition={{ duration: 0.25 }}
             className="section-container mt-3 md:hidden"
           >
-            <div className="glass-strong flex flex-col gap-1 rounded-2xl p-3">
+            <div className="surface-inset flex flex-col gap-0.5 p-2">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 font-mono text-sm uppercase tracking-wider text-muted transition-colors hover:bg-white/5 hover:text-white"
+                  className="border-l border-transparent px-4 py-3 font-mono text-sm uppercase tracking-wider text-muted transition-all hover:border-primary hover:bg-white/[0.02] hover:text-foreground"
                 >
                   {link.label}
                 </a>

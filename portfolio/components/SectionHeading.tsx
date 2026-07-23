@@ -16,11 +16,11 @@ export default function SectionHeading({
   return (
     <Reveal className={align === "center" ? "text-center" : ""}>
       <div className={`flex flex-col gap-3 ${align === "center" ? "items-center" : "items-start"}`}>
-        <span className="eyebrow flex items-center gap-2">
-          <span className="h-px w-6 bg-primary" />
+        <span className="eyebrow flex items-center gap-2.5">
+          <span className="h-px w-6 bg-gradient-to-r from-primary to-transparent" />
           {eyebrow}
         </span>
-        <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+        <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl md:text-5xl">
           {title}
         </h2>
         {description && (

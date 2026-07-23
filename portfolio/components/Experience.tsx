@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, CheckCircle2 } from "lucide-react";
+import { Briefcase } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 import { experience } from "@/lib/data";
@@ -18,20 +18,30 @@ export default function Experience() {
         <div className="mt-14 space-y-6">
           {experience.map((exp, i) => (
             <Reveal key={exp.id} delay={i * 0.1}>
-              <div className="glass grid gap-6 rounded-2xl p-7 transition-all duration-300 hover:border-primary/40 sm:p-9 md:grid-cols-[1fr_2fr]">
-                <div>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary/20 bg-white/5 text-primary">
-                    <Briefcase size={20} />
+              <div className="grid gap-6 rounded-[2rem] border border-white/[0.05] bg-[#0e0e0e] p-7 transition-all duration-400 sm:p-9 md:grid-cols-[1fr_2fr] md:gap-10">
+                {/* Left column — role metadata */}
+                <div className="relative md:border-r md:border-white/[0.05] md:pr-8">
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center border border-[rgba(143,163,184,0.18)] bg-[#141414] text-primary" style={{ borderRadius: "6px" }}>
+                    <Briefcase size={18} />
                   </div>
-                  <h3 className="font-display text-xl font-semibold sm:text-2xl">{exp.role}</h3>
+                  <h3 className="font-display text-xl font-semibold text-foreground sm:text-2xl">{exp.role}</h3>
                   <p className="mt-1 text-sm text-muted">{exp.org}</p>
-                  <span className="eyebrow mt-3 inline-block">{exp.duration}</span>
+                  <span className="eyebrow mt-4 inline-block text-[11px]">{exp.duration}</span>
                 </div>
 
-                <ul className="space-y-3">
-                  {exp.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-sm leading-relaxed text-white/80 sm:text-base">
-                      <CheckCircle2 size={17} className="mt-0.5 shrink-0 text-accent" />
+                {/* Right column — research points */}
+                <ul className="space-y-4">
+                  {exp.points.map((point, pi) => (
+                    <li
+                      key={point}
+                      className="group flex items-start gap-4 text-sm leading-relaxed text-foreground/85 sm:text-base"
+                    >
+                      <span className="mt-2 flex shrink-0 flex-col items-center gap-1">
+                        <span className="h-1.5 w-1.5 rounded-full bg-primary/70 transition-colors group-hover:bg-accent-hover" />
+                        {pi < exp.points.length - 1 && (
+                          <span className="h-full min-h-[1rem] w-px bg-white/[0.06]" />
+                        )}
+                      </span>
                       {point}
                     </li>
                   ))}

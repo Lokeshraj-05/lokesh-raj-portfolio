@@ -27,7 +27,7 @@ export default function Resume() {
               className="pointer-events-none absolute inset-0 -z-10 mx-auto max-w-xs"
               style={{
                 background:
-                  "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(91,140,255,0.18) 0%, rgba(139,92,246,0.10) 50%, transparent 75%)",
+                  "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(110,128,152,0.07) 0%, rgba(110,128,152,0.03) 50%, transparent 75%)",
                 filter: "blur(32px)",
                 transform: "scale(1.25)",
               }}
@@ -42,17 +42,16 @@ export default function Resume() {
               }}
               className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-2xl"
               style={{
-                boxShadow: "0 0 0 1px rgba(91,140,255,0.18), 0 0 32px rgba(91,140,255,0.12)",
+                boxShadow: "0 0 0 1px rgba(143,163,184,0.14), 0 0 32px rgba(110,128,152,0.05)",
               }}
             >
               {/* Breathing border glow */}
               <motion.div
                 animate={{
                   boxShadow: [
-                    "0 0 0 1px rgba(91,140,255,0.20), 0 0 24px rgba(91,140,255,0.10)",
-                    "0 0 0 1px rgba(139,92,246,0.30), 0 0 40px rgba(139,92,246,0.18)",
-                    "0 0 0 1px rgba(0,212,255,0.20),  0 0 24px rgba(0,212,255,0.10)",
-                    "0 0 0 1px rgba(91,140,255,0.20), 0 0 24px rgba(91,140,255,0.10)",
+                    "0 0 0 1px rgba(143,163,184,0.16), 0 0 24px rgba(110,128,152,0.05)",
+                    "0 0 0 1px rgba(143,163,184,0.22), 0 0 32px rgba(110,128,152,0.07)",
+                    "0 0 0 1px rgba(143,163,184,0.16), 0 0 24px rgba(110,128,152,0.05)",
                   ],
                 }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -116,7 +115,7 @@ export default function Resume() {
                     background: "rgba(10,10,10,0.55)",
                     backdropFilter: "blur(14px)",
                     WebkitBackdropFilter: "blur(14px)",
-                    border: "1px solid rgba(255,255,255,0.10)",
+                    border: "1px solid rgba(143,163,184,0.12)",
                     boxShadow: "0 4px 24px rgba(0,0,0,0.35)",
                   }}
                 >
@@ -133,8 +132,11 @@ export default function Resume() {
           </Reveal>
 
           <Reveal delay={0.15}>
-            <div className="glass rounded-2xl p-8 sm:p-9">
-              <h3 className="font-display text-xl font-semibold sm:text-2xl">
+            <div
+              className="rounded-[2rem] border border-white/[0.06] bg-[#0e0e0e] p-8 sm:p-9"
+              style={{ boxShadow: "inset 0 1px 0 rgba(110,128,152,0.05)" }}
+            >
+              <h3 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
                 Get the complete picture, on paper.
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
@@ -142,13 +144,13 @@ export default function Resume() {
                 projects — formatted for a quick, recruiter-friendly read.
               </p>
 
-              <div className="mt-7 flex flex-wrap gap-4">
+              <div className="mt-7 flex flex-wrap gap-3">
                 <a
                   href="Loki_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   data-cursor-hover
-                  className="flex items-center gap-2 rounded-full bg-gradient-primary px-6 py-3.5 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-105"
+                  className="btn-primary"
                 >
                   <Eye size={16} />
                   View Resume
@@ -157,7 +159,7 @@ export default function Resume() {
                   href="Loki_Resume.pdf"
                   download
                   data-cursor-hover
-                  className="glass flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex items-center gap-2 border border-dashed border-[rgba(143,163,184,0.22)] px-6 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary hover:bg-[#141414]"
                 >
                   <Download size={16} />
                   Download PDF

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, ArrowUpRight, Check, Github } from "lucide-react";
+import { Sparkles, ArrowUpRight, Github } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 import { projects } from "@/lib/data";
@@ -21,69 +21,70 @@ export default function Projects() {
 
         {featured && (
           <Reveal delay={0.1} className="mt-14">
-            <div className="group relative overflow-hidden rounded-3xl border border-primary/30 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-8 shadow-glow sm:p-10">
-              <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-primary/20 blur-[100px] transition-opacity duration-500 group-hover:opacity-80" />
+            <div className="group relative overflow-hidden rounded-[2rem] border border-[rgba(143,163,184,0.15)] bg-[#0c0c0c] p-8 sm:p-10">
+              {/* Corner accents */}
+              <span className="pointer-events-none absolute left-0 top-0 h-16 w-16 border-l border-t border-primary/25" />
+              <span className="pointer-events-none absolute bottom-0 right-0 h-16 w-16 border-b border-r border-primary/25" />
 
               <div className="relative flex flex-wrap items-center gap-3">
-                <span className="flex items-center gap-1.5 rounded-full bg-gradient-primary px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-white">
-                  <Sparkles size={13} />
+                <span className="inline-flex items-center gap-1.5 border border-[rgba(143,163,184,0.22)] bg-[#141414] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-primary" style={{ borderRadius: "999px" }}>
+                  <Sparkles size={12} />
                   Featured Project
                 </span>
               </div>
 
               <div className="relative mt-6 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
                 <div>
-                  <h3 className="font-display text-2xl font-bold sm:text-3xl">{featured.name}</h3>
-                  <p className="mt-1 font-mono text-sm text-accent">{featured.tag}</p>
+                  <h3 className="font-display text-2xl font-bold text-foreground sm:text-3xl">{featured.name}</h3>
+                  <p className="mt-1 font-mono text-sm text-secondary">{featured.tag}</p>
                   <p className="mt-4 text-sm leading-relaxed text-muted sm:text-base">
                     {featured.description}
                   </p>
-                  
 
                   <div className="mt-6 flex flex-wrap gap-2">
                     {featured.tech.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono text-xs text-white/80"
+                        className="border border-white/[0.07] bg-[#141414] px-3 py-1 font-mono text-[11px] text-foreground/75"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <div className="mt-7 flex items-center gap-4">
+                  <div className="mt-7 flex items-center gap-3">
+                    <a
+                      href="https://github.com/Lokeshraj-05/ReSageAI"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor-hover
+                      className="btn-icon h-12 w-12"
+                    >
+                      <Github size={20} />
+                    </a>
 
-  <a
-    href="https://github.com/Lokeshraj-05/ReSageAI"
-    target="_blank"
-    rel="noopener noreferrer"
-    data-cursor-hover
-    className="glass flex h-12 w-12 items-center justify-center rounded-full text-white transition-all hover:-translate-y-1 hover:text-accent"
-  >
-    <Github size={20} />
-  </a>
-
-  <a
-    href="https://ieeexplore.ieee.org/document/11448669"
-    target="_blank"
-    rel="noopener noreferrer"
-    data-cursor-hover
-    className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-105"
-  >
-    View Publication
-    <ArrowUpRight size={16} />
-  </a>
-
-</div>
+                    <a
+                      href="https://ieeexplore.ieee.org/document/11448669"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-cursor-hover
+                      className="btn-primary px-5 py-3 text-sm"
+                    >
+                      View Publication
+                      <ArrowUpRight size={16} />
+                    </a>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-2.5 self-start sm:grid-cols-2">
-                  {featured.features.map((f) => (
+                <div className="grid grid-cols-1 gap-0 self-start border border-white/[0.05] sm:grid-cols-2">
+                  {featured.features.map((f, fi) => (
                     <div
                       key={f}
-                      className="flex items-center gap-2.5 rounded-xl bg-white/5 px-3.5 py-2.5 text-sm text-white/85"
+                      className={`flex items-center gap-2.5 px-3.5 py-3 text-sm text-foreground/80 ${
+                        fi % 2 === 0 ? "bg-[#111111]" : "bg-[#0e0e0e]"
+                      } ${fi < featured.features.length - 2 ? "border-b border-white/[0.04] sm:border-b-0" : ""}`}
                     >
-                      <Check size={14} className="shrink-0 text-primary" />
+                      <span className="font-mono text-[10px] text-primary/70">{String(fi + 1).padStart(2, "0")}</span>
                       {f}
                     </div>
                   ))}
@@ -97,49 +98,41 @@ export default function Projects() {
           {rest.map((p, i) => (
             <Reveal key={p.id} delay={0.1 + i * 0.1}>
               <motion.div
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="glass h-full rounded-2xl p-7 transition-colors duration-300 hover:border-primary/40 sm:p-8"
+                whileHover={{ boxShadow: "inset 0 0 24px rgba(110,128,152,0.04)" }}
+                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                className="group h-full rounded-[1.75rem] border border-white/[0.06] bg-[#0e0e0e] p-7 sm:p-8"
+                style={{ borderTop: "1px solid rgba(143,163,184,0.18)" }}
               >
-                <h3 className="font-display text-xl font-bold sm:text-2xl">{p.name}</h3>
-                <p className="mt-1 font-mono text-sm text-accent">{p.tag}</p>
+                <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">{p.name}</h3>
+                <p className="mt-1 font-mono text-sm text-secondary">{p.tag}</p>
                 <p className="mt-4 text-sm leading-relaxed text-muted">{p.description}</p>
 
-                <div className="mt-6 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-  {p.features.map((f) => (
-    <div
-      key={f}
-      className="flex items-center gap-2.5 rounded-xl bg-white/5 px-3.5 py-2.5 text-sm text-white/85"
-    >
-      <Check size={14} className="shrink-0 text-primary" />
-      {f}
-    </div>
-  ))}
-</div>
-
-                <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-5">
-              
-                  {p.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-white/10 px-3 py-1 font-mono text-xs text-white/70"
+                <div className="mt-6 space-y-2">
+                  {p.features.map((f) => (
+                    <div
+                      key={f}
+                      className="flex items-center gap-3 border-l border-[rgba(143,163,184,0.15)] py-1.5 pl-3 text-sm text-foreground/80 transition-colors group-hover:border-primary/40"
                     >
-                      {t}
-                    </span>
+                      {f}
+                    </div>
                   ))}
                 </div>
+
+                <div className="mt-5 border-t border-white/[0.06] pt-5 font-mono text-[11px] text-muted">
+                  {p.tech.join(" · ")}
+                </div>
                 <div className="mt-6">
-  <a
-    href="https://github.com/Lokeshraj-05/dumper-safety-system"
-    target="_blank"
-    rel="noopener noreferrer"
-    data-cursor-hover
-    className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-3 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-105"
-  >
-    <Github size={18} />
-    View Source Code
-  </a>
-</div>
+                  <a
+                    href="https://github.com/Lokeshraj-05/dumper-safety-system"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor-hover
+                    className="btn-outline inline-flex px-5 py-3 text-sm"
+                  >
+                    <Github size={18} />
+                    View Source Code
+                  </a>
+                </div>
               </motion.div>
             </Reveal>
           ))}
