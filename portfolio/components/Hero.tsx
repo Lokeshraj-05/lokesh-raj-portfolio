@@ -41,8 +41,8 @@ export default function Hero() {
         >
           <motion.div
             variants={item}
-            className="eyebrow mb-6 flex items-center gap-2.5 border border-[rgba(143,163,184,0.15)] bg-[#0e0e0e] px-4 py-1.5"
-            style={{ boxShadow: "inset 0 1px 0 rgba(110,128,152,0.06)", borderRadius: "999px" }}
+            className="eyebrow mb-6 flex items-center gap-2.5 border border-[rgba(127,174,181,0.22)] bg-[#0e0e0e] px-4 py-1.5"
+            style={{ boxShadow: "0 0 0 1px rgba(127,174,181,0.14), inset 0 1px 0 rgba(127,174,181,0.08)", borderRadius: "999px" }}
           >
             <span className="relative flex h-1.5 w-1.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-40" />

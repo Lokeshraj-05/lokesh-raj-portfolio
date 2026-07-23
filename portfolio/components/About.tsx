@@ -18,7 +18,7 @@ const pillars = [
     label: "Computer Vision",
     desc: "Developing systems that perceive, detect, and understand visual information from the real world.",
     surface: "surface-matte corner-accent",
-    iconWrap: "bg-transparent border border-[rgba(143,163,184,0.18)] text-secondary",
+    iconWrap: "bg-transparent border border-[rgba(127,174,181,0.20)] text-secondary",
   },
   {
     icon: Database,
@@ -38,7 +38,7 @@ const pillars = [
 
 const stats = [
   { value: "8.3", label: "CGPA", style: "surface-inset px-4 py-3" },
-  { value: "2027", label: "Graduating", style: "border border-[rgba(143,163,184,0.15)] bg-[#111111] px-4 py-3" },
+  { value: "2027", label: "Graduating", style: "border border-[rgba(127,174,181,0.20)] bg-[#111111] px-4 py-3" },
   { value: "2+", label: "Core Projects", style: "surface-matte border-b border-b-primary/30 px-4 py-3" },
 ];
 
@@ -68,8 +68,8 @@ export default function About() {
                 <div
                   className={`group h-full rounded-[1.5rem] p-5 transition-all duration-500 ${p.surface} ${
                     i % 2 === 0
-                      ? "hover:shadow-[inset_0_0_20px_rgba(110,128,152,0.04)]"
-                      : "hover:border-[rgba(143,163,184,0.22)]"
+                      ? "hover:shadow-[inset_0_0_20px_rgba(127,174,181,0.06)]"
+                      : "hover:border-[rgba(127,174,181,0.28)]"
                   }`}
                 >
                   <div

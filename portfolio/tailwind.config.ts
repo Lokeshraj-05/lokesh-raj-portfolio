@@ -10,14 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#6E8098",
-        secondary: "#8FA3B8",
-        accent: "#6E8098",
-        "accent-hover": "#8FA3B8",
+        primary: "#7FAEB5",
+        secondary: "#A9CDD2",
+        accent: "#7FAEB5",
+        "accent-hover": "#D7ECEF",
         background: "#0A0A0A",
         foreground: "#F4F4F4",
         card: "rgba(255,255,255,0.03)",
-        "card-border": "rgba(143,163,184,0.20)",
+        "card-border": "rgba(127,174,181,0.24)",
         muted: "#A5A5A5",
       },
       fontFamily: {
@@ -27,7 +27,7 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-primary":
-          "linear-gradient(135deg, #6E8098 0%, #8FA3B8 100%)",
+          "linear-gradient(135deg, #7FAEB5 0%, #A9CDD2 100%)",
         "gradient-radial": "radial-gradient(circle, var(--tw-gradient-stops))",
         "grid-pattern":
           "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
@@ -64,9 +64,9 @@ const config: Config = {
         },
       },
       boxShadow: {
-        glow: "0 0 32px rgba(110,128,152,0.08)",
-        "glow-accent": "0 0 24px rgba(110,128,152,0.06)",
-        "inset-slate": "inset 0 1px 0 rgba(110,128,152,0.10)",
+        glow: "0 0 0 1px rgba(127,174,181,0.18), 0 0 18px rgba(127,174,181,0.08), 0 12px 32px rgba(0,0,0,0.42)",
+        "glow-accent": "0 0 18px rgba(127,174,181,0.10)",
+        "inset-frost": "inset 0 1px 0 rgba(127,174,181,0.12)",
         depth: "0 8px 32px rgba(0,0,0,0.45)",
       },
     },

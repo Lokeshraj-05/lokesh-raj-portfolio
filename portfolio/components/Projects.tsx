@@ -21,13 +21,15 @@ export default function Projects() {
 
         {featured && (
           <Reveal delay={0.1} className="mt-14">
-            <div className="group relative overflow-hidden rounded-[2rem] border border-[rgba(143,163,184,0.15)] bg-[#0c0c0c] p-8 sm:p-10">
+            <div className="group relative overflow-hidden rounded-[2rem] border border-[rgba(127,174,181,0.18)] bg-[#0c0c0c] p-8 sm:p-10"
+              style={{ boxShadow: "0 0 0 1px rgba(127,174,181,0.12), 0 0 18px rgba(127,174,181,0.06), 0 16px 40px rgba(0,0,0,0.48)" }}
+            >
               {/* Corner accents */}
               <span className="pointer-events-none absolute left-0 top-0 h-16 w-16 border-l border-t border-primary/25" />
               <span className="pointer-events-none absolute bottom-0 right-0 h-16 w-16 border-b border-r border-primary/25" />
 
               <div className="relative flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 border border-[rgba(143,163,184,0.22)] bg-[#141414] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-primary" style={{ borderRadius: "999px" }}>
+                <span className="inline-flex items-center gap-1.5 border border-[rgba(127,174,181,0.26)] bg-[#141414] px-4 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-wider text-primary" style={{ borderRadius: "999px" }}>
                   <Sparkles size={12} />
                   Featured Project
                 </span>
@@ -98,10 +100,10 @@ export default function Projects() {
           {rest.map((p, i) => (
             <Reveal key={p.id} delay={0.1 + i * 0.1}>
               <motion.div
-                whileHover={{ boxShadow: "inset 0 0 24px rgba(110,128,152,0.04)" }}
+                whileHover={{ boxShadow: "0 0 0 1px rgba(127,174,181,0.20), inset 0 0 24px rgba(127,174,181,0.05), 0 12px 32px rgba(0,0,0,0.45)" }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                 className="group h-full rounded-[1.75rem] border border-white/[0.06] bg-[#0e0e0e] p-7 sm:p-8"
-                style={{ borderTop: "1px solid rgba(143,163,184,0.18)" }}
+                style={{ borderTop: "1px solid rgba(127,174,181,0.22)", boxShadow: "0 0 0 1px rgba(127,174,181,0.08), 0 8px 28px rgba(0,0,0,0.38)" }}
               >
                 <h3 className="font-display text-xl font-bold text-foreground sm:text-2xl">{p.name}</h3>
                 <p className="mt-1 font-mono text-sm text-secondary">{p.tag}</p>
@@ -111,7 +113,7 @@ export default function Projects() {
                   {p.features.map((f) => (
                     <div
                       key={f}
-                      className="flex items-center gap-3 border-l border-[rgba(143,163,184,0.15)] py-1.5 pl-3 text-sm text-foreground/80 transition-colors group-hover:border-primary/40"
+                      className="flex items-center gap-3 border-l border-[rgba(127,174,181,0.18)] py-1.5 pl-3 text-sm text-foreground/80 transition-colors group-hover:border-primary/50"
                     >
                       {f}
                     </div>

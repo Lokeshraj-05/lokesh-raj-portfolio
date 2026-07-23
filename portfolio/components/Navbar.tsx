@@ -39,7 +39,7 @@ export default function Navbar() {
           className={`flex items-center gap-2 border border-white/[0.06] bg-[#0e0e0e]/90 px-4 py-2 font-display text-sm font-semibold tracking-[0.15em] text-foreground backdrop-blur-sm transition-all ${
             scrolled ? "opacity-100" : "pointer-events-none opacity-0 md:pointer-events-auto md:opacity-100"
           }`}
-          style={{ boxShadow: "inset 0 1px 0 rgba(110,128,152,0.07)" }}
+          style={{ boxShadow: "inset 0 1px 0 rgba(127,174,181,0.08)" }}
         >
           <span className="h-1.5 w-1.5 bg-primary" />
           LOKI

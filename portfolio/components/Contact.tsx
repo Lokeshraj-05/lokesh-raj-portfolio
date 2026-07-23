@@ -12,8 +12,8 @@ const contactCards = [
     icon: Mail,
     title: "Email",
     value: profile.email,
-    surface: "border border-white/[0.06] bg-[#0e0e0e] hover:shadow-[inset_0_0_20px_rgba(110,128,152,0.04)]",
-    iconWrap: "border border-[rgba(143,163,184,0.15)] bg-[#141414] text-primary",
+    surface: "border border-white/[0.06] bg-[#0e0e0e] hover:shadow-[inset_0_0_20px_rgba(127,174,181,0.07)]",
+    iconWrap: "border border-[rgba(127,174,181,0.20)] bg-[#141414] text-primary",
   },
   {
     type: "link" as const,
@@ -21,7 +21,7 @@ const contactCards = [
     icon: Phone,
     title: "Phone",
     value: profile.phone,
-    surface: "surface-inset hover:border-[rgba(143,163,184,0.2)]",
+    surface: "surface-inset hover:border-[rgba(127,174,181,0.26)]",
     iconWrap: "bg-primary/10 text-primary",
   },
   {

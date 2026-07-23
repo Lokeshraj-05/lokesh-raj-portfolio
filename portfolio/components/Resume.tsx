@@ -27,7 +27,7 @@ export default function Resume() {
               className="pointer-events-none absolute inset-0 -z-10 mx-auto max-w-xs"
               style={{
                 background:
-                  "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(110,128,152,0.07) 0%, rgba(110,128,152,0.03) 50%, transparent 75%)",
+                  "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(127,174,181,0.10) 0%, rgba(127,174,181,0.04) 50%, transparent 75%)",
                 filter: "blur(32px)",
                 transform: "scale(1.25)",
               }}
@@ -42,16 +42,16 @@ export default function Resume() {
               }}
               className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-2xl"
               style={{
-                boxShadow: "0 0 0 1px rgba(143,163,184,0.14), 0 0 32px rgba(110,128,152,0.05)",
+                boxShadow: "0 0 0 1px rgba(127,174,181,0.18), 0 0 24px rgba(127,174,181,0.08), 0 16px 40px rgba(0,0,0,0.48)",
               }}
             >
               {/* Breathing border glow */}
               <motion.div
                 animate={{
                   boxShadow: [
-                    "0 0 0 1px rgba(143,163,184,0.16), 0 0 24px rgba(110,128,152,0.05)",
-                    "0 0 0 1px rgba(143,163,184,0.22), 0 0 32px rgba(110,128,152,0.07)",
-                    "0 0 0 1px rgba(143,163,184,0.16), 0 0 24px rgba(110,128,152,0.05)",
+                    "0 0 0 1px rgba(127,174,181,0.18), 0 0 20px rgba(127,174,181,0.07)",
+                    "0 0 0 1px rgba(127,174,181,0.28), 0 0 30px rgba(127,174,181,0.12)",
+                    "0 0 0 1px rgba(127,174,181,0.18), 0 0 20px rgba(127,174,181,0.07)",
                   ],
                 }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -115,7 +115,7 @@ export default function Resume() {
                     background: "rgba(10,10,10,0.55)",
                     backdropFilter: "blur(14px)",
                     WebkitBackdropFilter: "blur(14px)",
-                    border: "1px solid rgba(143,163,184,0.12)",
+                    border: "1px solid rgba(127,174,181,0.16)",
                     boxShadow: "0 4px 24px rgba(0,0,0,0.35)",
                   }}
                 >
@@ -134,7 +134,7 @@ export default function Resume() {
           <Reveal delay={0.15}>
             <div
               className="rounded-[2rem] border border-white/[0.06] bg-[#0e0e0e] p-8 sm:p-9"
-              style={{ boxShadow: "inset 0 1px 0 rgba(110,128,152,0.05)" }}
+              style={{ boxShadow: "0 0 0 1px rgba(127,174,181,0.12), inset 0 1px 0 rgba(127,174,181,0.08), 0 12px 32px rgba(0,0,0,0.40)" }}
             >
               <h3 className="font-display text-xl font-semibold text-foreground sm:text-2xl">
                 Get the complete picture, on paper.
@@ -159,7 +159,7 @@ export default function Resume() {
                   href="Loki_Resume.pdf"
                   download
                   data-cursor-hover
-                  className="inline-flex items-center gap-2 border border-dashed border-[rgba(143,163,184,0.22)] px-6 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary hover:bg-[#141414]"
+                  className="inline-flex items-center gap-2 border border-dashed border-[rgba(127,174,181,0.26)] px-6 py-3.5 text-sm font-semibold text-foreground transition-all hover:border-primary hover:bg-[#141414]"
                 >
                   <Download size={16} />
                   Download PDF
