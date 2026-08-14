@@ -5,18 +5,16 @@ import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 import { skillCategories } from "@/lib/data";
 
-// Standard styles for categories 0–3 (Programming, AI, Backend, Databases)
-// Categories 4 (Data Analytics) and 5 (Developer Tools) get custom renders below
 const categoryStyles = [
   {
-    container: "surface-inset border-l-[3px] border-l-primary/50 p-6 sm:p-7",
+    container: "surface-inset border-l-[3px] border-l-primary/60 p-6 sm:p-7",
     label: "font-mono text-xs uppercase tracking-[0.2em] text-primary mb-4 block",
     chip: "skill-chip skill-chip-a",
     layout: "flex flex-wrap gap-2",
   },
   {
     container: "surface-matte p-6 sm:p-8",
-    label: "inline-block font-mono text-xs uppercase tracking-[0.2em] text-foreground mb-1 pb-3 border-b border-[rgba(127,174,181,0.22)] w-full",
+    label: "inline-block font-mono text-xs uppercase tracking-[0.2em] text-foreground mb-1 pb-3 border-b border-[rgba(143,206,212,0.28)] w-full",
     chip: "skill-chip skill-chip-b",
     layout: "flex flex-wrap gap-x-4 gap-y-2",
   },
@@ -27,12 +25,6 @@ const categoryStyles = [
     chip: "skill-chip skill-chip-c",
     layout: "grid grid-cols-2 gap-2 sm:grid-cols-3",
   },
-  // Databases — two-column inline list with index markers
-  null,
-  // Data Analytics — two-column stat-style layout
-  null,
-  // Developer Tools — grouped rows with category dividers
-  null,
 ];
 
 function animSpan(skill: string, si: number, className: string) {
@@ -50,27 +42,31 @@ function animSpan(skill: string, si: number, className: string) {
   );
 }
 
-// ── Databases card ──────────────────────────────────────────────────────────
+// ── Databases ───────────────────────────────────────────────────────────────
+// Two items: clean indexed rows with a divider, filling the card height evenly
 function DatabasesCard({ skills }: { skills: string[] }) {
   return (
-    <div className="h-full rounded-[1.75rem] bg-[#0d0d0d] border border-white/[0.04] p-6 sm:p-7 transition-all duration-400 hover:border-[rgba(127,174,181,0.28)]">
-      <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary mb-5 block">
+    <div className="card-hover h-full rounded-[1.75rem] bg-[#0d0d0d] border border-white/[0.05] p-6 sm:p-7 transition-all duration-300">
+      <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary mb-6 block">
         Databases
       </span>
-      <div className="grid grid-cols-2 gap-x-4 gap-y-0">
+      <div className="flex flex-col gap-0">
         {skills.map((skill, si) => (
           <motion.div
             key={skill}
-            initial={{ opacity: 0, x: -6 }}
+            initial={{ opacity: 0, x: -8 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: si * 0.06 }}
-            className="flex items-center gap-3 border-b border-white/[0.04] py-3"
+            transition={{ duration: 0.35, delay: si * 0.08 }}
+            className="flex items-center gap-4 border-b border-white/[0.05] py-4 last:border-b-0"
           >
-            <span className="font-mono text-[10px] text-primary/50 shrink-0 w-4">
+            <span className="font-mono text-[10px] text-primary/60 shrink-0 tabular-nums">
               {String(si + 1).padStart(2, "0")}
             </span>
-            <span className="font-mono text-xs text-foreground/85">{skill}</span>
+            <span className="font-mono text-sm text-foreground/90 font-medium">{skill}</span>
+            <span className="ml-auto font-mono text-[10px] uppercase tracking-widest text-primary/40">
+              SQL
+            </span>
           </motion.div>
         ))}
       </div>
@@ -78,27 +74,35 @@ function DatabasesCard({ skills }: { skills: string[] }) {
   );
 }
 
-// ── Data Analytics card ─────────────────────────────────────────────────────
+// ── Data Analytics ──────────────────────────────────────────────────────────
+// Two items: each rendered as a labelled tool entry with a type annotation
 function DataAnalyticsCard({ skills }: { skills: string[] }) {
+  const meta: Record<string, string> = {
+    "Excel": "Spreadsheet",
+    "Power BI": "Visualisation",
+  };
   return (
-    <div className="h-full rounded-[1.75rem] surface-soft p-6 sm:p-7 transition-all duration-400 hover:border-[rgba(127,174,181,0.28)]">
-      <span className="font-display text-sm font-semibold text-foreground mb-5 flex items-center gap-2">
-        <span className="h-1 w-1 bg-primary" />
+    <div className="card-hover h-full rounded-[1.75rem] surface-soft p-6 sm:p-7 transition-all duration-300">
+      <span className="font-display text-sm font-semibold text-foreground mb-6 flex items-center gap-2">
+        <span className="h-1.5 w-1.5 rounded-full bg-primary" />
         Data Analytics
       </span>
       <div className="flex flex-col gap-0">
         {skills.map((skill, si) => (
           <motion.div
             key={skill}
-            initial={{ opacity: 0, y: 6 }}
+            initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: si * 0.07 }}
-            className="group flex items-center justify-between border-b border-white/[0.05] py-3 last:border-b-0"
+            transition={{ duration: 0.35, delay: si * 0.08 }}
+            className="group flex items-center justify-between border-b border-white/[0.05] py-4 last:border-b-0"
           >
-            <span className="font-mono text-xs text-foreground/85">{skill}</span>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-4 bg-primary/40 group-hover:bg-primary transition-colors duration-300" />
+              <span className="font-mono text-sm text-foreground/90 font-medium">{skill}</span>
+            </div>
             <span className="font-mono text-[10px] uppercase tracking-widest text-primary/50 group-hover:text-primary transition-colors duration-300">
-              Tool
+              {meta[skill] ?? "Tool"}
             </span>
           </motion.div>
         ))}
@@ -107,7 +111,8 @@ function DataAnalyticsCard({ skills }: { skills: string[] }) {
   );
 }
 
-// ── Developer Tools card ────────────────────────────────────────────────────
+// ── Developer Tools ─────────────────────────────────────────────────────────
+// Six items grouped into three logical sub-sections
 const toolGroups = [
   { label: "Version Control", keys: ["Git", "GitHub"] },
   { label: "Editors & Notebooks", keys: ["VS Code", "Google Colab", "Jupyter Notebook"] },
@@ -117,15 +122,16 @@ const toolGroups = [
 function DeveloperToolsCard({ skills }: { skills: string[] }) {
   const skillSet = new Set(skills);
   return (
-    <div className="h-full rounded-[1.75rem] surface-layered p-6 sm:p-8 transition-all duration-400 hover:border-[rgba(127,174,181,0.28)]">
-      <span className="eyebrow mb-5 block">Developer Tools</span>
+    <div className="card-hover h-full rounded-[1.75rem] surface-layered p-6 sm:p-8 transition-all duration-300">
+      <span className="eyebrow mb-6 block">Developer Tools</span>
       <div className="flex flex-col gap-5">
         {toolGroups.map((group, gi) => {
           const groupSkills = group.keys.filter((k) => skillSet.has(k));
           if (!groupSkills.length) return null;
           return (
             <div key={group.label}>
-              <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted/60 mb-2">
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-primary/55 mb-2.5 flex items-center gap-2">
+                <span className="h-px w-3 bg-primary/40" />
                 {group.label}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -135,8 +141,8 @@ function DeveloperToolsCard({ skills }: { skills: string[] }) {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.35, delay: gi * 0.05 + si * 0.04 }}
-                    className="skill-chip skill-chip-a rounded-none"
+                    transition={{ duration: 0.3, delay: gi * 0.06 + si * 0.04 }}
+                    className="skill-chip skill-chip-a"
                   >
                     {skill}
                   </motion.span>
@@ -162,7 +168,6 @@ export default function Skills() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-2">
           {skillCategories.map((cat, i) => {
-            // Custom renders for refined cards
             if (cat.id === "databases") {
               return (
                 <Reveal key={cat.id} delay={i * 0.08}>
@@ -185,12 +190,11 @@ export default function Skills() {
               );
             }
 
-            // Standard cards for remaining categories
             const style = categoryStyles[i % categoryStyles.length]!;
             return (
               <Reveal key={cat.id} delay={i * 0.08}>
                 <div
-                  className={`h-full rounded-[1.75rem] transition-all duration-400 hover:border-[rgba(127,174,181,0.30)] ${style.container}`}
+                  className={`card-hover h-full rounded-[1.75rem] transition-all duration-300 ${style.container}`}
                 >
                   {style.labelAccent ? (
                     <span className={style.label}>
@@ -200,11 +204,8 @@ export default function Skills() {
                   ) : (
                     <span className={style.label}>{cat.label}</span>
                   )}
-
                   <div className={style.layout}>
-                    {cat.skills.map((skill, si) =>
-                      animSpan(skill, si, style.chip)
-                    )}
+                    {cat.skills.map((skill, si) => animSpan(skill, si, style.chip))}
                   </div>
                 </div>
               </Reveal>

@@ -18,7 +18,7 @@ const pillars = [
     label: "Computer Vision",
     desc: "Developing systems that perceive, detect, and understand visual information from the real world.",
     surface: "surface-matte corner-accent",
-    iconWrap: "bg-transparent border border-[rgba(127,174,181,0.20)] text-secondary",
+    iconWrap: "bg-transparent border border-[rgba(143,206,212,0.28)] text-secondary",
   },
   {
     icon: Database,
@@ -38,7 +38,7 @@ const pillars = [
 
 const stats = [
   { value: "8.3", label: "CGPA", style: "surface-inset px-4 py-3" },
-  { value: "2027", label: "Graduating", style: "border border-[rgba(127,174,181,0.20)] bg-[#111111] px-4 py-3" },
+  { value: "2027", label: "Graduating", style: "border border-[rgba(143,206,212,0.28)] bg-[#111111] px-4 py-3" },
   { value: "2+", label: "Core Projects", style: "surface-matte border-b border-b-primary/30 px-4 py-3" },
 ];
 
@@ -66,10 +66,10 @@ export default function About() {
             {pillars.map((p, i) => (
               <Reveal key={p.label} delay={0.1 * i}>
                 <div
-                  className={`group h-full rounded-[1.5rem] p-5 transition-all duration-500 ${p.surface} ${
+                  className={`card-hover group h-full rounded-[1.5rem] p-5 transition-all duration-500 ${p.surface} ${
                     i % 2 === 0
-                      ? "hover:shadow-[inset_0_0_20px_rgba(127,174,181,0.06)]"
-                      : "hover:border-[rgba(127,174,181,0.28)]"
+                      ? "hover:shadow-[inset_0_0_20px_rgba(143,206,212,0.08)]"
+                      : "hover:border-[rgba(143,206,212,0.40)]"
                   }`}
                 >
                   <div

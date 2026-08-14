@@ -12,8 +12,8 @@ const contactCards = [
     icon: Mail,
     title: "Email",
     value: profile.email,
-    surface: "border border-white/[0.06] bg-[#0e0e0e] hover:shadow-[inset_0_0_20px_rgba(127,174,181,0.07)]",
-    iconWrap: "border border-[rgba(127,174,181,0.20)] bg-[#141414] text-primary",
+    surface: "border border-[rgba(143,206,212,0.20)] bg-[#0e0e0e]",
+    iconWrap: "border border-[rgba(143,206,212,0.30)] bg-[#141414] text-primary",
   },
   {
     type: "link" as const,
@@ -21,7 +21,7 @@ const contactCards = [
     icon: Phone,
     title: "Phone",
     value: profile.phone,
-    surface: "surface-inset hover:border-[rgba(127,174,181,0.26)]",
+    surface: "surface-inset",
     iconWrap: "bg-primary/10 text-primary",
   },
   {
@@ -29,7 +29,7 @@ const contactCards = [
     icon: MapPin,
     title: "Location",
     value: profile.location,
-    surface: "border-l-2 border-l-primary/40 bg-[#111111] border border-white/[0.04]",
+    surface: "border-l-2 border-l-primary/50 bg-[#111111] border border-white/[0.04]",
     iconWrap: "bg-transparent text-secondary",
   },
 ];
@@ -67,12 +67,12 @@ export default function Contact() {
                   <a
                     href={card.href}
                     data-cursor-hover
-                    className={`flex h-full flex-col items-center gap-3 rounded-[2rem] p-7 text-center transition-all duration-400 ${card.surface}`}
+                    className={`card-hover flex h-full flex-col items-center gap-3 rounded-[2rem] p-7 text-center transition-all duration-300 ${card.surface}`}
                   >
                     {inner}
                   </a>
                 ) : (
-                  <div className={`flex h-full flex-col items-center gap-3 rounded-[2rem] p-7 text-center ${card.surface}`}>
+                  <div className={`card-hover flex h-full flex-col items-center gap-3 rounded-[2rem] p-7 text-center ${card.surface}`}>
                     {inner}
                   </div>
                 )}

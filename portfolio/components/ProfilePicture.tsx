@@ -81,7 +81,7 @@ export default function ProfilePicture() {
             left: p.left,
             width: p.size,
             height: p.size,
-            boxShadow: "0 0 8px rgba(127,174,181,0.18)",
+            boxShadow: "0 0 8px rgba(143,206,212,0.22)",
           }}
           animate={{
             y: [0, -14, 0],
@@ -114,8 +114,8 @@ export default function ProfilePicture() {
           <div
             className="relative p-[2px]"
             style={{
-              background: "linear-gradient(160deg, rgba(127,174,181,0.30) 0%, rgba(127,174,181,0.07) 50%, rgba(127,174,181,0.18) 100%)",
-              boxShadow: "0 0 0 1px rgba(127,174,181,0.18), 0 0 24px rgba(127,174,181,0.08)",
+              background: "linear-gradient(160deg, rgba(143,206,212,0.32) 0%, rgba(143,206,212,0.08) 50%, rgba(143,206,212,0.20) 100%)",
+              boxShadow: "0 0 0 1px rgba(143,206,212,0.22), 0 0 28px rgba(143,206,212,0.10)",
             }}
           >
             {/* Card body */}
@@ -152,12 +152,12 @@ export default function ProfilePicture() {
               <motion.div
                 className="pointer-events-none absolute inset-0 opacity-30"
                 style={{
-                  background: `radial-gradient(220px circle at ${glareX} ${glareY}, rgba(127,174,181,0.14), transparent 70%)`,
+                  background: `radial-gradient(220px circle at ${glareX} ${glareY}, rgba(143,206,212,0.16), transparent 70%)`,
                 }}
               />
 
               {/* Bottom strip */}
-              <div className="absolute inset-x-0 bottom-0 border-t border-[rgba(127,174,181,0.14)] bg-[#0a0a0a]/80 px-4 py-3 backdrop-blur-xl">
+              <div className="absolute inset-x-0 bottom-0 border-t border-[rgba(143,206,212,0.18)] bg-[#0a0a0a]/80 px-4 py-3 backdrop-blur-xl">
                 <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-secondary">
                   AI &amp; Data Science
                 </p>

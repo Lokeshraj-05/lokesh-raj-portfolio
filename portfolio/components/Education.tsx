@@ -21,7 +21,7 @@ export default function Education() {
             className="absolute bottom-0 left-0 top-0 w-px"
             style={{
               background:
-                "linear-gradient(to bottom, rgba(127,174,181,0.38) 0%, rgba(127,174,181,0.10) 60%, transparent 100%)",
+                "linear-gradient(to bottom, rgba(143,206,212,0.45) 0%, rgba(143,206,212,0.12) 60%, transparent 100%)",
             }}
           />
 
@@ -29,21 +29,21 @@ export default function Education() {
             <Reveal key={edu.id} delay={i * 0.15} className="relative mb-12 last:mb-0">
               {/* Node */}
               <span className="absolute -left-[41px] top-1 flex h-8 w-8 items-center justify-center sm:-left-[41px]">
-                <span className="absolute h-8 w-8 rounded-full border border-[rgba(127,174,181,0.26)] bg-[#0e0e0e]" />
+                <span className="absolute h-8 w-8 rounded-full border border-[rgba(143,206,212,0.35)] bg-[#0e0e0e]" />
                 <span className="absolute h-3 w-3 rounded-full bg-primary/80" />
                 <GraduationCap size={14} className="relative z-10 text-primary" />
               </span>
 
               <div
-                className="group rounded-[1.75rem] border border-white/[0.05] bg-[#0e0e0e] p-6 transition-all duration-400 sm:p-7"
+                className="card-hover group rounded-[1.75rem] border border-white/[0.05] bg-[#0e0e0e] p-6 transition-all duration-400 sm:p-7"
                 style={{
-                  boxShadow: "0 0 0 1px rgba(127,174,181,0.14), inset 3px 0 0 rgba(127,174,181,0.24), 0 8px 28px rgba(0,0,0,0.38)",
+                  boxShadow: "0 0 0 1px rgba(143,206,212,0.16), inset 3px 0 0 rgba(143,206,212,0.30), 0 8px 28px rgba(0,0,0,0.38)",
                 }}
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span className="eyebrow">{edu.duration}</span>
                   <span
-                    className="border border-[rgba(127,174,181,0.22)] bg-[#141414] px-3 py-1 font-mono text-xs text-secondary"
+                    className="border border-[rgba(143,206,212,0.30)] bg-[#141414] px-3 py-1 font-mono text-xs text-secondary"
                     style={{ borderRadius: "999px" }}
                   >
                     {edu.metric}
